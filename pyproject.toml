@@ -1,0 +1,39 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "kaonavi-duckdb-writer"
+version = "0.1.0"
+license = { file = "LICENSE" }
+description = "Kaonavi DuckDB Writer"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = ["python-dotenv>=1.1.0"]
+
+[project.optional-dependencies]
+dev = [
+    "mypy>=1.15.0",
+    "pytest>=8.3.5",
+    "pytest-pythonpath>=0.7.3",
+    "pytest-asyncio>=0.26.0",
+]
+
+[dependency-groups]
+dev = [
+    "mypy>=1.15.0",
+    "pytest>=8.3.5",
+    "pytest-pythonpath>=0.7.3",
+    "pytest-asyncio>=0.26.0",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+asyncio_default_fixture_loop_scope = "function"
+
+[tool.mypy]
+strict = true
+show_error_codes = true
+pretty = true
+warn_unused_configs = true
